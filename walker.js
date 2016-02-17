@@ -10,7 +10,10 @@ walker.y = 0; //actual Y position
 
 //accepts a new direction in degrees and converts it to radians
 walker.setDir = function(nDir){
-  walker.dir = nDir > 360 ? walker.setDir(nDir - 360) : nDir * (Math.PI/180);
+  while(nDir >= 360){
+    nDir -= 360;
+  }
+  walker.dir = nDir * (Math.PI/180);
 };
 
 //returns the direction in degrees
@@ -21,6 +24,7 @@ walker.getDir = function(){
 //takes into account the distance to walk and current direction to find out
 //the end position after movements
 walker.walk = function(distance){
+  console.log('dir: '+walker.getDir());
   var magX = Math.floor(distance * Math.cos(walker.dir)); //the magnitude to move in the X direction
   var magY = Math.floor(distance * Math.sin(walker.dir)); //the magnitude to move in the Y direction
   walker.x += magX;
