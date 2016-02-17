@@ -6,6 +6,7 @@ angular.module('procApp', []).controller('ProceduralController', function() {
     var proc = this;
     window.onload = function(){
       procFunc.simpleSpiral();
+      console.log(ctx);
     };
-    
+
 });
