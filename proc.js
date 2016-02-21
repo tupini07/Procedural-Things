@@ -7,8 +7,10 @@ angular.module('procApp', []).controller('ProceduralController', function() {
 
   proc.updateIm = function(item) {
     walker.clear();
-    procFunc[item].func();
+    setTimeout(function () {
+      procFunc[item].func();
+    }, 10);
   };
 
-  this.procFuncs = procFunc;
+  proc.procFuncs = procFunc;
 });

@@ -66,7 +66,13 @@ walker.drawTo = function(newX, newY) {
 
 //clears the canvas for redrawing
 walker.clear = function() {
-  ctx.clearRect(0, 0, mCanvas.width, mCanvas.height);
+  //ctx.clearRect(0, 0, mCanvas.width, mCanvas.height);
+
+  //this is chosen on the above since we need to clear ALL of the canvas data
+  //up to this time this is the best way I've found to do this but it doesn't
+  //look or feel very elegant.
+  //TODO make this better
+  mCanvas.width = mCanvas.width;
 };
 
 //draws a circle of a certain radius and the center of it will be the position
