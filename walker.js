@@ -27,16 +27,16 @@ walker.walk = function(distance) {
   var dirDeegres = walker.getDir();
   if (dirDeegres <= 90) {
     var magX = Math.floor(distance * Math.cos(walker.dir)); //the magnitude to move in the X direction
-    var magY = - Math.floor(distance * Math.sin(walker.dir)); //the magnitude to move in the Y direction
-  }else if(dirDeegres > 90 && dirDeegres <= 180){
+    var magY = -Math.floor(distance * Math.sin(walker.dir)); //the magnitude to move in the Y direction
+  } else if (dirDeegres > 90 && dirDeegres <= 180) {
     walker.setDir(180 - dirDeegres);
-    var magX = - Math.floor(distance * Math.cos(walker.dir)); //the magnitude to move in the X direction
-    var magY = - Math.floor(distance * Math.sin(walker.dir)); //the magnitude to move in the Y direction
-  }else if(dirDeegres > 180 && dirDeegres <= 270){
+    var magX = -Math.floor(distance * Math.cos(walker.dir)); //the magnitude to move in the X direction
+    var magY = -Math.floor(distance * Math.sin(walker.dir)); //the magnitude to move in the Y direction
+  } else if (dirDeegres > 180 && dirDeegres <= 270) {
     walker.setDir(270 - dirDeegres);
-    var magX = - Math.floor(distance * Math.sin(walker.dir)); //the magnitude to move in the X direction
+    var magX = -Math.floor(distance * Math.sin(walker.dir)); //the magnitude to move in the X direction
     var magY = Math.floor(distance * Math.cos(walker.dir)); //the magnitude to move in the Y direction
-  }else if(dirDeegres > 270 && dirDeegres <= 360){
+  } else if (dirDeegres > 270 && dirDeegres <= 360) {
     walker.setDir(360 - dirDeegres);
     var magX = Math.floor(distance * Math.cos(walker.dir)); //the magnitude to move in the X direction
     var magY = Math.floor(distance * Math.sin(walker.dir)); //the magnitude to move in the Y direction
@@ -67,4 +67,16 @@ walker.drawTo = function(newX, newY) {
 //clears the canvas for redrawing
 walker.clear = function() {
   ctx.clearRect(0, 0, mCanvas.width, mCanvas.height);
+};
+
+//draws a circle of a certain radius and the center of it will be the position
+//of the walker
+walker.drawCircle = function(radius) {
+  ctx.beginPath();
+  ctx.arc(walker.x, walker.y, radius, 0, 2 * Math.PI);
+  ctx.stroke();
+
+  //drawing the cirle moves the current context's coordinates so we need to
+  //restore them
+  ctx.moveTo(walker.x, walker.y);
 };
