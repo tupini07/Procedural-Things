@@ -22,6 +22,11 @@ function Walker(sX, sY) {
     return this.dir * (180 / Math.PI)
   };
 
+  //returns position in the form of [x,y]
+  this.getPos = function(){
+    return [this.x, this.y];
+  };
+
   //takes into account the distance to walk and current direction to find out
   //the end position after movements
   this.walk = function(distance) {
@@ -51,7 +56,7 @@ function Walker(sX, sY) {
   };
 
   //moves the walker to a new absolute position denoted by (newX, newY)
-  this.moveTo = function(newX, newY) {
+  this.setPos = function(newX, newY) {
     this.x = newX;
     this.y = newY;
     ctx.moveTo(this.x, this.y);
