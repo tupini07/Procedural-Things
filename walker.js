@@ -24,7 +24,6 @@ walker.getDir = function(){
 //takes into account the distance to walk and current direction to find out
 //the end position after movements
 walker.walk = function(distance){
-  console.log('dir: '+walker.getDir());
   var magX = Math.floor(distance * Math.cos(walker.dir)); //the magnitude to move in the X direction
   var magY = Math.floor(distance * Math.sin(walker.dir)); //the magnitude to move in the Y direction
   walker.x += magX;

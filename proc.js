@@ -4,8 +4,10 @@ var ctx = mCanvas.getContext("2d"); //2Dimensional global context
 
 angular.module('procApp', []).controller('ProceduralController', function() {
     var proc = this;
-    window.onload = function(){
-      procFunc.tubularSpiral();
+
+    proc.updateIm = function(item){
+      procFunc[item].func();
     };
 
+    this.procFuncs = procFunc;
 });

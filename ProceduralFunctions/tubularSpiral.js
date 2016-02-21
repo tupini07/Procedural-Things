@@ -1,4 +1,5 @@
-procFunc.tubularSpiral = function(){
+procFunc.TubularSpiral = {
+  func: function(){
   walker.moveTo(mCanvas.width/2,mCanvas.height/2);
   var i = 0; //100 steps
   walker.setDir(450);
@@ -7,4 +8,6 @@ procFunc.tubularSpiral = function(){
     walker.setDir(walker.getDir() + i);
     i += 1;
   }
+},
+  name: 'TubularSpiral'
 };
