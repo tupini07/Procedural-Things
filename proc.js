@@ -3,11 +3,11 @@ var mCanvas = document.getElementById("mCanvas"); //the canvas element
 var ctx = mCanvas.getContext("2d"); //2Dimensional global context
 
 angular.module('procApp', []).controller('ProceduralController', function() {
-    var proc = this;
+  var proc = this;
 
-    proc.updateIm = function(item){
-      procFunc[item].func();
-    };
+  proc.updateIm = function(item) {
+    procFunc[item].func();
+  };
 
-    this.procFuncs = procFunc;
+  this.procFuncs = procFunc;
 });
