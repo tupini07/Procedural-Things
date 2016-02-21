@@ -6,7 +6,7 @@ angular.module('procApp', []).controller('ProceduralController', function() {
   var proc = this;
 
   proc.updateIm = function(item) {
-    walker.clear();
+    mCanvas.width = mCanvas.width;
     setTimeout(function () {
       procFunc[item].func();
     }, 10);
