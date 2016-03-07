@@ -10,9 +10,11 @@
   <div class="row jumbotron">
     <div class="col-sm-3">
       <label style="display: block;">Image displayed:</label>
-      <select style="width: 100%;" ng-change="proc.updateIm(item)" ng-model="item">
+      <select style="width: 100%;" ng-change="proc.updateIm(item, proc.animdelay)" ng-model="item">
         <option ng-repeat="func in proc.procFuncs" value="{{ func.name }}">{{ func.name }}</option>
       </select>
+      <label> Animation Delay: {{proc.animdelay}}</label>
+      <input type="range" min="1" max="100" ng-model="proc.animdelay"/>
     </div>
     <div class="col-sm-9">
       <canvas id="mCanvas" width="800" height="400" style="border:1px solid #d3d3d3; background-color: white;">
